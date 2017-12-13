@@ -11,7 +11,8 @@ var vueLoaderConfig = require('./vue-loader.conf');
 var webpackConfig = {
     entry : {
         app : [
-            "./build/dev-client",
+            //"./build/dev-client",
+            "webpack-hot-middleware/client",
             "./test/index.js"
         ]
     },

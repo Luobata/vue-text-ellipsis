@@ -1,8 +1,8 @@
 <template>
-    <div class="a">1223</div>
+    <div class="a">122345</div>
 </template>
 <style>
     .a {
-        color: red;
+        color: green;
     }
 </style>
