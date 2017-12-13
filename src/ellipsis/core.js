@@ -20,7 +20,7 @@ export default (font = {}) => {
         const str = font.text.substr(index, i) + left;
         const len = getLength(ctx,
             Object.assign({ value:  str}, font));
-        if (len < font.width) {
+        if (len <= parseInt(font.width, 10)) {
             line[beginLine - 1] = str;
         } else {
             beginLine++;

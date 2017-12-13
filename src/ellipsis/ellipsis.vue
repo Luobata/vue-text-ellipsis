@@ -43,13 +43,16 @@
                 this.textArr = core({
                     text: this.text,
                     width: this.width,
-                    lineHeight: this['line-height'],
-                    lineNum: this['line-num'],
-                    fontFamily: this['font-family'] || userConfig['font-family'],
-                    fontWeight: this['font-weight'] || userConfig['font-weight'],
+                    lineHeight: this.lineHeight,
+                    lineNum: this.lineNum,
+                    fontFamily: this.fontFamily || userConfig['font-family'],
+                    fontWeight: this.fontWeight || userConfig['font-weight'],
                     left: '...',
                 });
             }
         },
+        beforeMount() {
+            this.init();
+        }
     };
 </script>
