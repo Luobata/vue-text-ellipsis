@@ -12,7 +12,7 @@ var webpackConfig = {
     entry : {
         app : [
             //"./build/dev-client",
-            "webpack-hot-middleware/client",
+            "webpack-hot-middleware/client?quiet=true",
             "./test/index.js"
         ]
     },

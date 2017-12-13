@@ -1,4 +1,4 @@
-import app from './header/header.vue';
+import app from './ellipsis/ellipsis.vue';
 
 const install = (Vue) => {
     Vue.component(app.name, app);
@@ -9,6 +9,9 @@ if (typeof window !== 'undefined' && window.Vue) {
     install(window.Vue);
 };
 
-module.exports = {
+export default {
     install
 };
+//module.exports = {
+//    install
+//};

@@ -1,11 +1,5 @@
-<template>
-    <div>
-        <ecology-header
-            siteName='看房团管理后台'
-            userName='罗比塔'
-            @changeCity='changeCity'
-            ></ecology-header>
-    </div>
+<template lang="pug">
+    ellipsis(text="这是一句很长的话，真的很长很长很长" width="30px" line-height="14px" :line-num="2" tagName="p")
 </template>
 <style scoped>
     #app {
@@ -13,11 +7,7 @@
     }
 </style>
 <script>
-    import ecologyHeader from '../src/header/header.vue';
     export default {
-        components: {
-            ecologyHeader
-        },
         methods: {
             changeCity (city) {
                 console.log(city);
