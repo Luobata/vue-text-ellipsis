@@ -13,7 +13,7 @@
     }
 </style>
 <script>
-    import ecologyHeader from '../dist/header';
+    import ecologyHeader from '../src/header/header.vue';
     export default {
         components: {
             ecologyHeader
