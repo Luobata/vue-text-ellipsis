@@ -18,12 +18,18 @@
             width: {
                 type: String,
             },
-            'line-height': {
+            lineHeight: {
                 type: String,
                 default: '14px',
             },
-            'line-num': {
+            lineNum: {
                 type: Number,
+            },
+            fontFamily: {
+                type：String,
+            },
+            fontWeight: {
+                type：String,
             },
             left: {
                 type: String,
