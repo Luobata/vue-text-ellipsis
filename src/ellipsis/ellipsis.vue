@@ -48,6 +48,11 @@
                 span: '',
             };
         },
+        watch: {
+            'this.width': function () {
+                console.log(1);
+            }
+        },
         methods: {
             init() {
                 // 初始化
@@ -66,7 +71,7 @@
                     left: this.left || userConfig.left,
                 };
                 this.textArr = core(font, this.span);
-                //this.destory();
+                this.destory();
             },
             destory() {
                 this.span.remove();
@@ -81,6 +86,22 @@
         mounted() {
             if (!this.width) {
                 this.init();
+                const min = 1000;
+                let timeout;
+                let begin = new Date().getTime();
+                window.addEventListener('resize', () => {
+                    //this.init();
+                    const now = new Date().getTime();
+                    if (now - begin < min) {
+                        timeout = setTimeout(() => {
+                            this.init.call(this);
+                        }, now - begin);
+                    } else {
+                        timeout = null;
+                        clearTimeout(timeout);
+                        this.init();
+                    }
+                });
             }
         },
         destroyed() {
