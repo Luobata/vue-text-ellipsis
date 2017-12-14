@@ -1,8 +1,8 @@
 <template lang="pug">
     div
-        ellipsis(text="这是一句很长的话，真的很长很长很长" width="40px" line-height="14px" :line-num="1" tagName="p" :fontWeight="100" fontSize="16px" :left="left")
-        ellipsis.ell(:text="text" width="80px" line-height="14px" :line-num="1" tagName="p" :fontWeight="100" fontSize="16px" :left="left")
-        span.top(ref="top") {{ left }}
+        ellipsis(text="这是一句很长的话，真的很长很长很长,到底有多长呢，你来猜猜看" line-height="14px" :line-num="1" tagName="p" :fontWeight="100" fontSize="16px" :left="left")
+        //ellipsis.ell(:text="text" width="80px" line-height="14px" :line-num="1" tagName="p" :fontWeight="100" fontSize="16px" :left="left")
+        //span.top(ref="top") {{ left }}
 </template>
 <style lang="styl">
     .top
@@ -25,8 +25,8 @@
             }
         },
         mounted() {
-            const len = this.$refs['top'].offsetWidth;
-            console.log(len);
+            //const len = this.$refs['top'].offsetWidth;
+            //console.log(len);
         },
     };
 </script>

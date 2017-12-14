@@ -53,10 +53,11 @@
                 // 初始化
                 this.span  = document.createElement('span');
                 this.span.style.opacity = 0;
+                this.span.style['white-space'] = 'nowrap';
                 document.body.append(this.span);
                 const font = {
                     text: this.text,
-                    width: this.width || userConfig.width,
+                    width: this.width || this.$el.parentElement.offsetWidth,
                     lineHeight: this.lineHeight || userConfig.lineHeight,
                     lineNum: this.lineNum || userConfig.lineNum,
                     fontFamily: this.fontFamily || userConfig.fontFamily,
@@ -65,7 +66,7 @@
                     left: this.left || userConfig.left,
                 };
                 this.textArr = core(font, this.span);
-                this.destory();
+                //this.destory();
             },
             destory() {
                 this.span.remove();
@@ -73,7 +74,14 @@
             },
         },
         beforeMount() {
-            this.init();
+            if (this.width) {
+                this.init();
+            }
+        },
+        mounted() {
+            if (!this.width) {
+                this.init();
+            }
         },
         destroyed() {
         },

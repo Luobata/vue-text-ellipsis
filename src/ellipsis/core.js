@@ -7,6 +7,7 @@ const getLengthByCanvas = (ctx, font = {}) => {
     return ctx.measureText(font.value).width;
 };
 const getLengthByDom = (span, font = {}) => {
+    // TODO 增加style样式
     span.innerText = font.value;
     return span.offsetWidth;
 };
