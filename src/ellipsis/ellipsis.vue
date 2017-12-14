@@ -44,12 +44,16 @@
         },
         data() {
             return {
-                textArr: []
+                textArr: [],
+                span: '',
             };
         },
         methods: {
             init() {
                 // 初始化
+                this.span  = document.createElement('span');
+                this.span.style.opacity = 0;
+                document.body.append(this.span);
                 const font = {
                     text: this.text,
                     width: this.width || userConfig.width,
@@ -60,11 +64,18 @@
                     fontWeight: this.fontWeight || userConfig.fontWeight,
                     left: this.left || userConfig.left,
                 };
-                this.textArr = core(font);
-            }
+                this.textArr = core(font, this.span);
+                this.destory();
+            },
+            destory() {
+                this.span.remove();
+                this.span = '';
+            },
         },
         beforeMount() {
             this.init();
-        }
+        },
+        destroyed() {
+        },
     };
 </script>

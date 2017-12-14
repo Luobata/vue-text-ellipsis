@@ -1,4 +1,4 @@
-const getLength = (ctx, font = {}) => {
+const getLengthByCanvas = (ctx, font = {}) => {
     const weight = font.fontWeight;
     const size = font.fontSize;
     const family = font.fontFamily;
@@ -6,10 +6,15 @@ const getLength = (ctx, font = {}) => {
 
     return ctx.measureText(font.value).width;
 };
+const getLengthByDom = (span, font = {}) => {
+    span.innerText = font.value;
+    return span.offsetWidth;
+};
 
-export default (font = {}) => {
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
+export default (font = {}, span) => {
+    //const canvas = document.createElement('canvas');
+    //const ctx = canvas.getContext('2d');
+    //const span = document.createElement('span');
     let beginLine = 1;
     let index = 0;
     const line = [];
@@ -18,9 +23,9 @@ export default (font = {}) => {
         if (beginLine > font.lineNum) break;
         const left = beginLine === font.lineNum ? font.left : '';
         const str = font.text.substr(index, i - index) + left;
-        const len = getLength(ctx,
+        const len = getLengthByDom(span,
             Object.assign({ value:  str}, font));
-        console.log(len);
+        //console.log(str, len);
         if (len <= parseInt(font.width, 10)) {
             line[beginLine - 1] = str;
         } else {
