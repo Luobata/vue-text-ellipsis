@@ -1,10 +1,11 @@
 <template lang="pug">
-    ellipsis(text="这是一句很长的话，真的很长很长很长" width="40px" line-height="14px" :line-num="3" tagName="p")
+    div
+        ellipsis(text="这是一句很长的话，真的很长很长很长" width="40px" line-height="14px" :line-num="1" tagName="p" :fontWeight="100" fontSize="16px" left=".")
+        span.top .
 </template>
-<style scoped>
-    #app {
-        height: 100%;
-    }
+<style lang="styl">
+    .top
+        margin 20px
 </style>
 <script>
     export default {

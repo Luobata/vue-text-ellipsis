@@ -26,10 +26,13 @@
                 type: Number,
             },
             fontFamily: {
-                type：String,
+                type: String,
             },
             fontWeight: {
-                type：String,
+                type: String | Number,
+            },
+            fontSize: {
+                type: String,
             },
             left: {
                 type: String,
@@ -47,15 +50,16 @@
         methods: {
             init() {
                 // 初始化
-                const font = Object.assign({
+                const font = {
                     text: this.text,
-                    width: this.width,
-                    lineHeight: this.lineHeight,
-                    lineNum: this.lineNum,
-                    fontFamily: this.fontFamily,
-                    fontWeight: this.fontWeight,
-                    left: '...',
-                }, userConfig);
+                    width: this.width || userConfig.width,
+                    lineHeight: this.lineHeight || userConfig.lineHeight,
+                    lineNum: this.lineNum || userConfig.lineNum,
+                    fontFamily: this.fontFamily || userConfig.fontFamily,
+                    fontSize: this.fontSize || userConfig.fontSize,
+                    fontWeight: this.fontWeight || userConfig.fontWeight,
+                    left: this.left || userConfig.left,
+                };
                 this.textArr = core(font);
             }
         },

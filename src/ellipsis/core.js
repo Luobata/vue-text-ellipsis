@@ -1,6 +1,6 @@
 const getLength = (ctx, font = {}) => {
     const weight = font.fontWeight;
-    const size = font.size || '12px';
+    const size = font.fontSize;
     const family = font.fontFamily;
     ctx.font = `${weight} ${size} ${family}`;
 
@@ -20,6 +20,7 @@ export default (font = {}) => {
         const str = font.text.substr(index, i - index) + left;
         const len = getLength(ctx,
             Object.assign({ value:  str}, font));
+        console.log(len);
         if (len <= parseInt(font.width, 10)) {
             line[beginLine - 1] = str;
         } else {
