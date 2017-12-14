@@ -17,7 +17,6 @@
             },
             width: {
                 type: String,
-                default: '50px',
             },
             'line-height': {
                 type: String,
@@ -25,7 +24,9 @@
             },
             'line-num': {
                 type: Number,
-                default: 1,
+            },
+            left: {
+                type: String,
             },
             tagName: {
                 type: String,
@@ -40,15 +41,16 @@
         methods: {
             init() {
                 // 初始化
-                this.textArr = core({
+                const font = Object.assign({
                     text: this.text,
                     width: this.width,
                     lineHeight: this.lineHeight,
                     lineNum: this.lineNum,
-                    fontFamily: this.fontFamily || userConfig['font-family'],
-                    fontWeight: this.fontWeight || userConfig['font-weight'],
+                    fontFamily: this.fontFamily,
+                    fontWeight: this.fontWeight,
                     left: '...',
-                });
+                }, userConfig);
+                this.textArr = core(font);
             }
         },
         beforeMount() {
