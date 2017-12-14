@@ -17,12 +17,13 @@ export default (font = {}) => {
     for (let i = 0; i < font.text.length; i++) {
         if (beginLine > font.lineNum) break;
         const left = beginLine === font.lineNum ? font.left : '';
-        const str = font.text.substr(index, i) + left;
+        const str = font.text.substr(index, i - index) + left;
         const len = getLength(ctx,
             Object.assign({ value:  str}, font));
         if (len <= parseInt(font.width, 10)) {
             line[beginLine - 1] = str;
         } else {
+            i--;
             beginLine++;
             index = i;
         }

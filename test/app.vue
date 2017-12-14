@@ -1,5 +1,5 @@
 <template lang="pug">
-    ellipsis(text="这是一句很长的话，真的很长很长很长" width="30px" line-height="14px" :line-num="2" tagName="p")
+    ellipsis(text="这是一句很长的话，真的很长很长很长" width="40px" line-height="14px" :line-num="3" tagName="p")
 </template>
 <style scoped>
     #app {
