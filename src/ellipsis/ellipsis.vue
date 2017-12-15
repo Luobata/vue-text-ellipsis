@@ -50,6 +50,7 @@
             return {
                 textArr: [],
                 span: '',
+                parentWidth: '',
             };
         },
         watch: {
@@ -66,7 +67,7 @@
                 document.body.append(this.span);
                 const font = {
                     text: this.text,
-                    width: this.width || this.$el.parentElement.offsetWidth,
+                    width: this.parentWidth || this.$el.parentElement.offsetWidth,
                     lineHeight: this.lineHeight || userConfig.lineHeight,
                     lineNum: this.lineNum || userConfig.lineNum,
                     fontFamily: this.fontFamily || userConfig.fontFamily,
@@ -84,29 +85,34 @@
         },
         beforeMount() {
             if (this.width) {
+                this.parentWidth = this.width;
                 this.init();
             }
         },
         mounted() {
             if (!this.width) {
+                this.parentWidth = this.$el.parentElement.offsetWidth;
                 this.init();
                 const min = 1000;
                 let timeout;
                 let begin = new Date().getTime();
+                const that = this;
                 window.addEventListener('resize', () => {
-                    if (this.isImmediate) {
-                        this.init();
+                    if (that.parentWidth === that.$el.parentElement.offsetWidth) return;
+                    that.parentWidth = that.$el.parentElement.offsetWidth;
+                    if (that.isImmediate) {
+                        that.init();
                     } else {
                         const now = new Date().getTime();
                         if (now - begin < min) {
                             timeout = setTimeout(() => {
-                                this.init.call(this);
+                                that.init.call(that);
                                 begin = now;
                             }, now - begin);
                         } else {
                             timeout = null;
                             clearTimeout(timeout);
-                            this.init();
+                            that.init();
                             begin = now;
                         }
                     }
