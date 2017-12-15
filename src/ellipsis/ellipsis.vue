@@ -40,7 +40,11 @@
             tagName: {
                 type: String,
                 default: 'p',
-            }
+            },
+            isImmediate: {
+                type: Boolean,
+                default: true,
+            },
         },
         data() {
             return {
@@ -90,16 +94,21 @@
                 let timeout;
                 let begin = new Date().getTime();
                 window.addEventListener('resize', () => {
-                    //this.init();
-                    const now = new Date().getTime();
-                    if (now - begin < min) {
-                        timeout = setTimeout(() => {
-                            this.init.call(this);
-                        }, now - begin);
-                    } else {
-                        timeout = null;
-                        clearTimeout(timeout);
+                    if (this.isImmediate) {
                         this.init();
+                    } else {
+                        const now = new Date().getTime();
+                        if (now - begin < min) {
+                            timeout = setTimeout(() => {
+                                this.init.call(this);
+                                begin = now;
+                            }, now - begin);
+                        } else {
+                            timeout = null;
+                            clearTimeout(timeout);
+                            this.init();
+                            begin = now;
+                        }
                     }
                 });
             }
