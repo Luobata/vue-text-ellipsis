@@ -20,10 +20,10 @@
             width: {
                 type: String,
             },
-            lineHeight: {
-                type: String,
-                default: '14px',
-            },
+            //lineHeight: {
+            //    type: String,
+            //    default: '14px',
+            //},
             lineNum: {
                 type: Number,
             },
@@ -66,6 +66,9 @@
                 this.span  = document.createElement('span');
                 this.span.style.opacity = 0;
                 this.span.style['white-space'] = 'nowrap';
+                this.span.style['font-weight'] = this.fontWeight || userConfig.fontWeight;
+                this.span.style['font-family'] = this.fontFamily || userConfig.fontFamily;
+                this.span.style['font-size'] = this.fontSize|| userConfig.fontSize;
                 document.body.append(this.span);
                 const font = {
                     text: this.text,
