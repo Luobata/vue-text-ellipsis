@@ -1,6 +1,8 @@
 <template lang="pug">
-    div
-        p.ellipsis(v-for="item in textArr") {{ item }}
+    div.ellipsis-wrap
+        p.ellipsis(v-if="tagName === 'p'" v-for="item in textArr") {{ item }}
+        span.ellipsis(v-if="tagName === 'span'" v-for="item in textArr") {{ item }}
+        li.ellipsis(v-if="tagName === 'li'" v-for="item in textArr") {{ item }}
 </template>
 <style lang="styl">
 </style>
@@ -54,7 +56,7 @@
             };
         },
         watch: {
-            'this.width': function () {
+            width: function () {
                 console.log(1);
             }
         },
@@ -81,6 +83,9 @@
             destory() {
                 this.span.remove();
                 this.span = '';
+            },
+            update() {
+                this.init();
             },
         },
         beforeMount() {
