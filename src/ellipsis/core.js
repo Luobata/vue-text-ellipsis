@@ -1,11 +1,11 @@
-const getLengthByCanvas = (ctx, font = {}) => {
-    const weight = font.fontWeight;
-    const size = font.fontSize;
-    const family = font.fontFamily;
-    ctx.font = `${weight} ${size} ${family}`;
-
-    return ctx.measureText(font.value).width;
-};
+// const getLengthByCanvas = (ctx, font = {}) => {
+//    const weight = font.fontWeight;
+//    const size = font.fontSize;
+//    const family = font.fontFamily;
+//    ctx.font = `${weight} ${size} ${family}`;
+//
+//    return ctx.measureText(font.value).width;
+// };
 const getLengthByDom = (span, font = {}) => {
     // TODO 增加style样式
     span.innerText = font.value;
@@ -21,8 +21,10 @@ export default (font = {}, span) => {
         if (beginLine > font.lineNum) break;
         const left = beginLine === font.lineNum ? font.left : '';
         const str = font.text.substr(index, i - index) + left;
-        const len = getLengthByDom(span,
-            Object.assign({ value:  str}, font));
+        const len = getLengthByDom(
+            span,
+            Object.assign({ value: str }, font),
+        );
         // console.log(str, len);
         if (len <= parseInt(font.width, 10)) {
             line[beginLine - 1] = str;
