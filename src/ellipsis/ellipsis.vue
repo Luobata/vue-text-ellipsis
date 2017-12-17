@@ -7,7 +7,8 @@
 <style lang="styl">
 </style>
 <script>
-    import core from './core';
+    //import core from './core';
+    import core from 'text-ellipsis-core';
     import { userConfig } from './config';
 
     export default {

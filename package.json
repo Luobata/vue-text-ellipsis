@@ -21,6 +21,7 @@
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-2": "^6.22.0",
+    "babel-eslint": "^8.0.1",
     "css-loader": "0.25.0",
     "eslint": "^4.6.0",
     "eslint-config-airbnb": "^16.1.0",
@@ -80,5 +81,8 @@
   "bugs": {
     "url": "https://github.com/Luobata/text-ellipsis/issues"
   },
-  "homepage": "https://github.com/Luobata/text-ellipsis#readme"
+  "homepage": "https://github.com/Luobata/text-ellipsis#readme",
+  "dependencies": {
+    "text-ellipsis-core": "0.0.1"
+  }
 }
