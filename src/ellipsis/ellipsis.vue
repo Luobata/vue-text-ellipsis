@@ -82,7 +82,7 @@
                     left: this.left || userConfig.left,
                 };
                 this.textArr = core(font, this.span);
-                //this.destory();
+                this.destory();
             },
             destory() {
                 this.span.remove();
