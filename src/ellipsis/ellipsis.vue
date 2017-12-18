@@ -42,11 +42,11 @@
             },
             tagName: {
                 type: String,
-                default: 'p',
+                default: userConfig.tagName,
             },
             isImmediate: {
                 type: Boolean,
-                default: true,
+                default: userConfig.isImmediate,
             },
         },
         data() {
@@ -58,7 +58,7 @@
         },
         watch: {
             width: function () {
-                console.log(1);
+                this.update();
             }
         },
         methods: {
