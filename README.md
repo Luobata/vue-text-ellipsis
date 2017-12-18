@@ -41,7 +41,7 @@ You can add config when `vue.use` to set global-config or use the props on vue e
 | lineNum     | Number          | 2    (from global config)               | The max line.                            |
 | fontFamily  | String          | microsoft yahei    (from global config) | The fontFamily to calculate the width.   |
 | fontSize    | String\| Number | 14px    (from global config)            | The fontSize to calculate the width.     |
-| tagName     | String          | p    (from global config)               | The tag to show the text.                |
+| tagName     | String          | p    (from global config)               | The tag to show the text.(**only span p li **)                |
 | left        | String          | '…'    (from global config)             | The String add on the end of the last line. |
 | isImmediate | Boolean         | true    (from global config)            | Update the text when the width change immediate or not(like debounce). |
 
