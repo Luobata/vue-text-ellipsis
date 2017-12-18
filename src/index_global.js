@@ -1,7 +1,11 @@
 import app from './ellipsis/ellipsis.vue';
+import { assignConfig } from './ellipsis/config';
 
-const install = (Vue) => {
+const install = (Vue, conf) => {
     Vue.component(app.name, app);
+    if (conf) {
+        assignConfig(conf);
+    }
 };
 
 /* istanbul ignore if */

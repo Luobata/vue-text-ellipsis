@@ -5,7 +5,9 @@ import ellipsis from '../src/index_global';
 
 vue.config.devtools = true;
 vue.use(vueResource);
-vue.use(ellipsis);
+vue.use(ellipsis, {
+    fontSize: '50px',
+});
 
 new vue({
     el: '#app',
