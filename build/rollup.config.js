@@ -1,27 +1,23 @@
-import rollup from 'rollup';
 import babel from 'rollup-plugin-babel';
 import uglify from 'rollup-plugin-uglify';
 import alias from 'rollup-plugin-alias';
 import commonjs from 'rollup-plugin-commonjs';
 import resolve from 'rollup-plugin-node-resolve';
 import path from 'path';
-import css from 'rollup-plugin-css-only';
-import vue from 'rollup-plugin-vue';
-import image from 'rollup-plugin-img';
+import vue from 'rollup-plugin-vue2';
 import url from 'rollup-plugin-url';
 
 const root = path.resolve(__dirname, './');
 
 module.exports = {
     input: 'src/index_global.js',
-    name: 'ecologyHeader',
+    name: 'ellipsis',
     sourcemap: true,
     output: {
-        file: 'dist/header.js',
+        file: 'dist/ellipsis.js',
         format: 'umd'
     },
     plugins: [
-        // uglify(),
         resolve(),
         commonjs(),
         vue({
@@ -30,10 +26,8 @@ module.exports = {
         url(),
         babel({
             exclude: 'node_modules/**',
-            presets: [
-                [ 'es2015', { "modules": false } ]
-            ],
         }),
+        //uglify(),
         alias({
             UI: path.resolve(__dirname, '../src/ui'),
             EVENT: path.resolve(__dirname, '../src/event')

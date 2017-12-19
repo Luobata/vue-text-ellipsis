@@ -2,7 +2,7 @@
   "name": "vue-text-ellipsis",
   "version": "1.0.1",
   "description": "a text-ellipsis plugin both with Vue or common js use.",
-  "main": "index.js",
+  "main": "src/index_global.js",
   "scripts": {
     "dev": "rollup -w -c build/rollup.config.js",
     "dev:webpack": "node build/build.js",
@@ -83,6 +83,6 @@
   },
   "homepage": "https://github.com/Luobata/text-ellipsis#readme",
   "dependencies": {
-    "text-ellipsis-core": "0.0.1"
+    "text-ellipsis-core": "0.0.3"
   }
 }
