@@ -10,7 +10,7 @@ npm install --save-dev vue-text-ellipsis
 ```
 
 ## Link
-If you are using without Vue, use the package with dom-based situation.[dom-text-ellipsis](https://github.com/Luobata/dom-ellipsis-core) instead.
+If you are using without Vue, use the package with dom-based situation.[dom-text-ellipsis](https://github.com/Luobata/dom-text-ellipsis) instead.
 
 ## Usage
 ```js
