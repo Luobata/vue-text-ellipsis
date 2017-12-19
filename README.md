@@ -9,6 +9,9 @@ The situation when you need text ellipsis more then one line and the browser doe
 npm install --save-dev vue-text-ellipsis
 ```
 
+## Link
+If you are using without Vue, use the package with dom-based situation.[dom-text-ellipsis](https://github.com/Luobata/dom-ellipsis-core) instead.
+
 ## Usage
 ```js
 import vue-text-ellipsis from 'vue-text-ellipsis';
