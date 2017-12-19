@@ -73,7 +73,7 @@
                 document.body.append(this.span);
                 const font = {
                     text: this.text,
-                    width: this.parentWidth || this.$el.parentElement.offsetWidth,
+                    width: this.parentWidth || parseFloat(getComputedStyle(this.$el.parentElement).width, 10),
                     lineHeight: this.lineHeight || userConfig.lineHeight,
                     lineNum: this.lineNum || userConfig.lineNum,
                     fontFamily: this.fontFamily || userConfig.fontFamily,
@@ -100,15 +100,15 @@
         },
         mounted() {
             if (!this.width) {
-                this.parentWidth = this.$el.parentElement.offsetWidth;
+                this.parentWidth = parseFloat(getComputedStyle(this.$el.parentElement).width, 10);
                 this.init();
                 const min = 1000;
                 let timeout;
                 let begin = new Date().getTime();
                 const that = this;
                 window.addEventListener('resize', () => {
-                    if (that.parentWidth === that.$el.parentElement.offsetWidth) return;
-                    that.parentWidth = that.$el.parentElement.offsetWidth;
+                    if (that.parentWidth === parseFloat(getComputedStyle(this.$el.parentElement).width, 10)) return;
+                    that.parentWidth = parseFloat(getComputedStyle(this.$el.parentElement).width, 10);
                     if (that.isImmediate) {
                         that.init();
                     } else {
