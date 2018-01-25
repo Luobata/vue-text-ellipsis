@@ -1,11 +1,3 @@
-<template lang="pug">
-    div.ellipsis-wrap
-        p.ellipsis(v-if="tagName === 'p'" v-for="item in textArr") {{ item }}
-        span.ellipsis(v-if="tagName === 'span'" v-for="item in textArr") {{ item }}
-        li.ellipsis(v-if="tagName === 'li'" v-for="item in textArr") {{ item }}
-</template>
-<style lang="styl">
-</style>
 <script>
     //import core from './core';
     import core from 'text-ellipsis-core';
@@ -57,6 +49,16 @@
                 parentWidth: '',
                 resizeEvent: '',
             };
+        },
+        render() {
+            const item = this.textArr.map((item) => {
+                return <this.tagName class="ellipsis">{item}</this.tagName>;
+            });
+            return (
+                <div>
+                    {item}
+                </div>
+            )
         },
         watch: {
             width: function () {

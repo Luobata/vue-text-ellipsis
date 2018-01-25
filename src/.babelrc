@@ -8,5 +8,5 @@
         ],
         "flow"
     ],
-    "plugins": ["external-helpers"]
+    "plugins": ["transform-vue-jsx", "external-helpers"]
 }
