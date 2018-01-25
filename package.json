@@ -1,6 +1,6 @@
 {
   "name": "vue-text-ellipsis",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "a text-ellipsis plugin both with Vue or common js use.",
   "main": "src/index_global.js",
   "scripts": {
