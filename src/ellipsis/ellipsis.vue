@@ -10,6 +10,7 @@
     //import core from './core';
     import core from 'text-ellipsis-core';
     import { userConfig } from './config';
+    import { addResizeListener, removeResizeListener }from './resize-event';
 
     export default {
         name: 'ellipsis',
@@ -54,6 +55,7 @@
                 textArr: [],
                 span: '',
                 parentWidth: '',
+                resizeEvent: '',
             };
         },
         watch: {
@@ -106,7 +108,7 @@
                 let timeout;
                 let begin = new Date().getTime();
                 const that = this;
-                window.addEventListener('resize', () => {
+                this.resizeEvent = () => {
                     if (that.parentWidth === parseFloat(getComputedStyle(this.$el.parentElement).width, 10)) return;
                     that.parentWidth = parseFloat(getComputedStyle(this.$el.parentElement).width, 10);
                     if (that.isImmediate) {
@@ -125,10 +127,12 @@
                             begin = now;
                         }
                     }
-                });
+                };
+                addResizeListener(this.$el, this.resizeEvent);
             }
         },
         destroyed() {
+            removeResizeListener(this.$el, this.resizeEvent);
         },
     };
 </script>
